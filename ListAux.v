@@ -1,10 +1,11 @@
 Set Implicit Arguments.
 
 Require Export List.
-Require Export TheoryList.
+(*Require Export TheoryList.*)
 Require Import Bool.
 Require Import Classical_Prop.
 Require Import Arith.
+Require Import FunInd.
 
 Section ListAux.
 
@@ -20,7 +21,7 @@ Proof.
     discriminate.
 Qed.
 
-Lemma mem_In:
+(*Lemma mem_In:
   forall (e: A) (l: list A),
   mem Aeq_dec e l = true <-> In e l.
 Proof.
@@ -34,7 +35,7 @@ Proof.
         intros. elim H. 
            intros. contradiction b. symmetry. assumption.
            intros. apply <- IHl. apply H0.
-Qed.
+Qed.*)
 
 Lemma length_nil: forall (l: list A), length l = 0 -> l = nil.
 Proof.
@@ -382,7 +383,7 @@ Proof.
     apply (H0 a H2).
 Qed.
 
-Fixpoint inclb (k g: list A): bool :=
+(*Fixpoint inclb (k g: list A): bool :=
   List.fold_left (fun acc ke =>
     mem Aeq_dec ke g && acc
   ) k true.
@@ -405,7 +406,7 @@ Proof.
       intros. apply Is_true_eq_left. apply fold_left_and2. split.
         reflexivity.
         intros. unfold incl in H. apply <- mem_In. apply H. apply H0. 
-Qed.
+Qed.*)
 
 Lemma In_nth: forall (p: A) (l: list A), In p l -> exists n: nat, n < length l /\ forall q, p = nth n l q.
 Proof.

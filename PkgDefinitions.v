@@ -12,7 +12,7 @@ Module Type PACKAGE <: OrderedType.
   Axiom eq_refl: forall x: t, eq x x.
   Axiom eq_sym: forall x y: t, eq x y -> eq y x.
   Axiom eq_trans: forall x y z: t, eq x y -> eq y z -> eq x z.
-  Instance eq_equiv : Equivalence eq := Build_Equivalence t eq eq_refl eq_sym eq_trans. 
+  Instance eq_equiv : Equivalence eq := Build_Equivalence eq eq_refl eq_sym eq_trans. 
   
   Axiom lt_trans: forall x y z: t, lt x y -> lt y z -> lt x z.
   Axiom lt_not_eq: forall x y: t, lt x y -> ~ eq x y.

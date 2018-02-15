@@ -4,6 +4,7 @@ Require Import ListAux.
 Require Export MSetAux.
 Require Import Coq.Structures.OrdersEx.
 Require Import Arith.
+Require Import FunInd.
 
 Module Type DiGraph (Vertices: S).
 Import Vertices.
@@ -47,7 +48,7 @@ Parameter eq_refl : forall g, eq g g.
 Parameter eq_sym : forall g g', eq g g' -> eq g' g.
 Parameter eq_trans : forall g g' g'', eq g g' -> eq g' g'' -> eq g g''.
 
-Instance eq_equiv: Equivalence eq := Build_Equivalence t eq eq_refl eq_sym eq_trans.
+Instance eq_equiv: Equivalence eq := Build_Equivalence eq eq_refl eq_sym eq_trans.
 Section Spec.
 
 Variables v v' v'' v''': Vertices.elt.
@@ -310,11 +311,11 @@ Proof.
                 apply sublist_incl with (skipn (S x) l).
                 apply (direct_sublist_incl x0 _ _ H6 (proj1 H5)). apply sublist_skipn.
                 apply incl_cons. right. apply last_In. intro. apply (lt_n_O (S x)). rewrite H6 in H4. apply H4.
-                apply incl_nil.
+                apply ListAux.incl_nil.
              apply ipft_app. apply (proj2 H5). simpl.
                replace (last l q) with (last l v). rewrite <- H0. apply (proj1 H).
                apply last_irrelevant. intro. apply (lt_n_O (S x)). rewrite H6 in H4. apply H4.
-             right. exists nil. split. apply incl_nil. simpl. rewrite (H3 v). rewrite (nth_last _ H4).
+             right. exists nil. split. apply ListAux.incl_nil. simpl. rewrite (H3 v). rewrite (nth_last _ H4).
              rewrite <- H0. apply (proj1 H).
          destruct H1.
          (* tl, hd *) destruct (bla g l q p). 

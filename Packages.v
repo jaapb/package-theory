@@ -3,6 +3,7 @@ Require Import Arith.
 Require Import Decidable.
 (* Require Import ListAux. *)
 (* Require Import FSetDecide. *)
+Require Import FunInd.
 
 Module CProps := Properties ConflictSet.
 Module CFacts := CProps.FM.

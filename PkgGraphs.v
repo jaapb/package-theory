@@ -1,5 +1,6 @@
 Require Import MGraph.
 Require Import Packages.
+Require Import FunInd.
 
 Parameter R: PackageSet.t.
 Parameter C: ConflictSet.t.

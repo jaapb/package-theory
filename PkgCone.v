@@ -4,6 +4,8 @@ Require Import Decidable.
 Require Import Arith.
 Require Import Max.
 Require Import BoolEq.
+Require Import FunInd.
+Require Import Omega.
 
 Section dep_cone_stuff.
 (* Variable R: PackageSet.t. *)
@@ -23,7 +25,8 @@ Proof.
   intros. rewrite (eqb_eq a b H). apply H0.
 Qed. 
 
-Add Morphism dep_filter: dep_filter_m.
+Add Morphism dep_filter with signature PackageSet.eq ==> Logic.eq 
+  as dep_filter_m.
 Proof.
   intros. apply dep_filter_eq. apply H.
 Qed.

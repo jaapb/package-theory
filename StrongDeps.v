@@ -4,7 +4,7 @@ Require Import Decidable.
 Require Import Arith.
 Require Import Program.
 Require Import Packages.
-Require Import FGraph.
+Require Import MGraph.
 Require Import Verifier.
 Require Import Classical_Prop.
 
